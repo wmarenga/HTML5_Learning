@@ -1,0 +1,280 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@font-face {
+  font-family: "FonteLogo";
+  src: url("../_fonts/bubblegum-sans-regular.otf");
+}
+body {
+  font-family: Arial, sans-serif;
+  /*background-image: url(fundo.jpg); - insere um fundo com imagem.*/
+
+  background-color: #dddddd;
+  /* - Cor do fundo da tela usando o nome da cor.*/
+
+  /*background-color: #422ce3; - Cor do fundo da tela usando hexadecimal.*/
+
+  /*background-color: hsl(212.3, 24%, 85.1%); - cor do fundo da tela usando padrão HSB/HSL -> GIMP HSV.*/
+
+  /*background-color: hsla(241.8, 95.6%, 83.9%, 0.3); - cor do fundo da tela usando padrão HSB/HSL -> GIMP HSV e transparência.*/
+
+  color: rgba(0, 0, 0, 1);
+  /*Cor do texto. rgba (0,0,0, número entre 0 e 1 - 0.1 é 10% de transparência e 0.9 é 90% de transparência)*/
+}
+
+div#interface {
+  width: 900px;
+  background-color: white;
+  /*A primeira margem é a acima, a segunda direita, a terceira abaixo e a última a esquerda.Sempre que quiser centralizar uma imagem, ajuste as margens*/
+  margin: -20px auto 0px auto;
+  /*Cria uma sombra para a interface. O primeiro valor é o deslocamento lateral, o segundo é o deslocamento vertical, espalhamento da sombra e por último a cor da sombra. Usamos o parâmetro rgba para definir a transparência da sombra.*/
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /*Usamos o parâmetro "padding" para definir o afastamento interno das margens internas (na ordem: cima, direita, abaixo e esquerda). Se todos os valores forem iguais, somente informamos um valor que todos lados serão iguais.*/
+  padding: 10px;
+}
+
+p {
+  text-align: justify;
+  /*O parâmetro "text-indent" cria uma margem no texto*/
+  text-indent: 50px;
+}
+
+/*Todos os links*/
+a {
+  color: #606060;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+header#cabecalho img#icone {
+  position: absolute;
+  left: 780px;
+  top: 70px;
+}
+
+header#cabecalho {
+  border-bottom: 1px #606060 solid;
+  height: 150px;
+  /*Adiciona uma imagem no fundo do cabeçalho. Observe que estamos trabalhando na pasta _css/estilo.css e sendo assim usamos dois ponto para voltar para a pasta "Projeto Google Glass e depois entrar na pasta "_imagens/glass-logo-peq.jpg". Acrescentamos o parâmetro "no-repeat" para que a imagens apareça somente 1 vez. Após este procedimento, definimos 0px - deslocamento horizontal e 80px - deslocamento vertical.*/
+
+  /*Como a imagem foi definida como background, não é possível clicar com o botão direito e salvar imagem na home page.*/
+  background: url("../_imagens/glass-logo-peq.jpg") no-repeat 0px 80px;
+}
+
+header#cabecalho h1 {
+  font-family: "FonteLogo", Helvetica, sans-serif;
+  font-size: 30pt;
+  color: #606060;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+header#cabecalho h2 {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 15pt;
+  color: #888888;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+/*Formatação de imagens com legendas*/
+figure.foto-legenda {
+  position: relative;
+  border: 8px solid white;
+  box-shadow: 2px 2px 4px black;
+}
+
+figure.foto-legenda img {
+  width: 100%;
+  height: 100%;
+}
+
+figure.foto-legenda figcaption {
+  opacity: 0%;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: opacity 1s;
+}
+
+figure.foto-legenda:hover figcaption {
+  opacity: 1;
+}
+
+/*Formatação do Menú*/
+
+nav#menu {
+  /*A opção "display: block" é utilizada para que o menu possa ser agrupado para ser movido pela tela.*/
+  display: block;
+}
+
+nav#menu ul {
+  /*Retira os marcadores dos ítens da lista.*/
+  list-style: none;
+  /*Transforma as letras do menu em maiúscula.*/
+  text-transform: uppercase;
+  /*Se usarmos "position: absolute" os objetos contidos em "menu" -> ul e ol poderão ser posicionados livremente pela tela, enquanto que se configurármos a position: relative" os objetos ul e ol somente poderão ser movidos dentro de "menu", seu container*/
+  position: absolute;
+  top: -20px;
+  left: 300px;
+}
+
+nav#menu li {
+  display: inline-block;
+  background-color: #dddddd;
+  padding: 10px;
+  margin: 2px;
+  /*A transição do escurecimento do menu aparece em 1 segundo.*/
+  transition: background-color 1s;
+  /*Compatibilidade para funcionar em navegadores "Safari, Google Chrome, Android e iOS" antigos. http://prefixr.com/what-are-vendor-prefixes.php*/
+  -webkit-transition: background-color 1s;
+  /*Compatibilidade para funcionar em navegadores "Internet Explorer" antigos. http://prefixr.com/what-are-vendor-prefixes.php*/
+  -ms-transition: background-color 1s;
+  /*Compatibilidade para funcionar em navegadores "Opera" antigos. http://prefixr.com/what-are-vendor-prefixes.php*/
+  -o-transition: background-color 1s;
+  /*Compatibilidade para funcionar em navegadores "Firefox" antigos. http://prefixr.com/what-are-vendor-prefixes.php*/
+  -moz-transition: background-color 1s;
+}
+
+nav#menu li:hover {
+  /*Escurece o menu quando passamos o mouse por cima.*/
+  background-color: #606060;
+}
+
+/*Esconde o ítem "Menu Principal" visualmente.*/
+nav#menu h1 {
+  display: none;
+}
+
+nav#menu a {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav#menu a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+section#corpo {
+  display: block;
+  width: 500px;
+  float: left;
+  border-right: 1px solid #606060;
+  padding-right: 15px;
+}
+
+article#noticia-principal h2 {
+  font-size: 13pt;
+  color: #606060;
+  background-color: #dddddd;
+  padding: 5px 0px 5px 10px;
+  margin: 10px 0px 10px 0px;
+}
+
+header#cabecalho-artigo h1 {
+  font-family: "FonteLogo", sans-serif;
+  font-size: 20pt;
+  color: #606060;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.direita {
+  text-align: right;
+}
+
+header#cabecalho-artigo h2 {
+  font-size: 13pt;
+  color: #cecece;
+  background-color: #ffffff;
+  margin: 0px;
+}
+
+header#cabecalho-artigo h3 {
+  font-size: 12px;
+  color: #606060;
+}
+
+table#tabelaspec {
+  border: 1px solid #60606060;
+  /*Configura o espaçamento entre as linhas internas das células e as linhas externas*/
+  border-spacing: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table#tabelaspec td {
+  border: 1px solid #60606060;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table#tabelaspec td.ce {
+  color: #ffffff;
+  background-color: #606060;
+  /*O vertical-align da classe vai sobrepor o que foi definido no td principal.*/
+  vertical-align: top;
+  font-weight: bold;
+  text-align: right;
+}
+
+table#tabelaspec td.cd {
+  background-color: #cecece;
+  text-align: left;
+}
+
+table#tabelaspec caption {
+  color: #888888;
+  font-size: 13pt;
+  font-weight: bolder;
+}
+
+table#tabelaspec caption span {
+  display: block;
+  float: right;
+  color: #000000;
+  font-size: 8pt;
+  margin-top: 10px;
+}
+
+aside#lateral {
+  display: block;
+  width: 350px;
+  float: right;
+  background-color: #dddddd;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+aside#lateral h1 {
+  font-family: "FonteLogo", sans-serif;
+  font-size: 20pt;
+  color: #606060;
+  margin-top: 0px;
+}
+
+aside#lateral h2 {
+  background-color: #606060;
+  font-size: 13pt;
+  color: white;
+  padding: 5px;
+}
+
+footer#rodape {
+  clear: both;
+  border-top: 1px solid #606060;
+}
+
+footer#rodape p {
+  text-align: center;
+}
